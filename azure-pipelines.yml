@@ -22,3 +22,22 @@ stages:
 
     - script: echo this is step TWO
       displayName: 'Task 2'
+
+
+- stage: DeployToDEV
+  displayName: Deploy to Dev
+  jobs:
+  - deployment: deploymentJob
+    displayName: Deployment Job
+    environment:
+      name: vm demo
+      resourceType: VirtualMachine
+    strategy:
+      runOnce:
+         deploy:
+           steps:
+           - script: echo This is step ONE in Deploy
+             displayName: 'Deploy Task 1'
+             
+           - script: echo This is step Two in Deploy
+             displayName: 'Deploy Task 2'
