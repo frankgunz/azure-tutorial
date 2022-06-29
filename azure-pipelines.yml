@@ -3,17 +3,22 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-trigger:
-- main
+trigger: none
+
 
 pool:
-  vmImage: default
+  vmImage: 'ubuntu-latest'
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+stages:
+- stage: CI 
+  displayName: CI Stage
+  jobs:
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+  - job: normal
+    displayName: Normal Job
+    steps:
+    - script: echo This is step ONE
+      displayName: 'Task 1'
+
+    - script: echo this is step TWO
+      displayName: 'Task 2'
