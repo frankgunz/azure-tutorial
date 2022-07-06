@@ -30,7 +30,7 @@ stages:
   - deployment: deploymentJob
     displayName: Deployment Job
     environment:
-      name: vmware
+      name: WINDOWS
       resourceType: VirtualMachine
     strategy:
       runOnce:
